@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 const person = {
   name: "Viandry",
   age: 25,
-  city: 'Jakarta'
+  city: "Jakarta",
 };
 
 // default itu true semua
@@ -24,14 +24,12 @@ const person = {
 // console.log(person);
 
 // anti delete
-Object.getOwnPropertyDescriptor(person,'name',{ configurable: false});
-delete person.name
+Object.getOwnPropertyDescriptor(person, "name", { configurable: false });
+delete person.name;
 
 console.log(person);
 
 // jika configurable sudah di set false tidak bisa di rubah kembali
-
-
 
 // ===================================
 
@@ -46,7 +44,6 @@ console.log(person);
 // );
 
 // console.log(Object.getOwnPropertyDescriptor(person,'name'));
-
 
 // ===============================
 // const animal = {
@@ -75,24 +72,22 @@ console.log(person);
 
 // enum patern
 const Menu = {
-    CHECK_BALACE: 0,
-    DEPOSIT: 1,
-    WITHDRAW: 2,
-    EXIT: 3
+  CHECK_BALACE: 0,
+  DEPOSIT: 1,
+  WITHDRAW: 2,
+  EXIT: 3,
+};
+
+function freeze() {
+  for (key in Menu) {
+    Object.defineProperty(Menu, key, {
+      writable: false,
+      configurable: false,
+    });
+  }
 }
 
-function freeze(){
-    for ( key in Menu ){
-            Object.defineProperty(Menu, key,
-            {
-                writable: false,
-                configurable: false
-            }
-        );
-    }
-}
-
-// untuk mengubah writable dan configuration jadi false Object.freeze() 
+// untuk mengubah writable dan configuration jadi false Object.freeze()
 
 // untuk mengubah configurable saja ke false Object.seal()
 
@@ -100,7 +95,5 @@ function freeze(){
 
 // 1 enumerable bsia di ubah Object.defineProperty
 // semua enumerable bisa di ubah Object.defineProperties(ob)
-
-
 
 // termasuk http status itu enum patern
