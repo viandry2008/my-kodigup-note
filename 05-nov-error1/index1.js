@@ -6,9 +6,9 @@ const Account = require("./account");
 const account = new Account(1, 100);
 
 try {
-  // account.withdraw(-50);
+  account.withdraw(-50);
   // account.withdraw(5e6);
-  account.withdraw(5);
+  // account.withdraw(5);
   console.log("Withdraw succeeded");
 } catch (err) {
   // console.log(err);
